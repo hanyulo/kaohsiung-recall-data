@@ -4,7 +4,7 @@ const logger = require('./utils/create-logger');
 const uploadDirectory = require('./utils/uploader');
 const BUCKET_NAME = 'pts-multimedia';
 const DIRECTORY_NAME = 'recall-vote-han-kuo-yu';
-const TARGET_DIRECTORY = path.resolve(__dirname, '../../dist');
+const TARGET_DIRECTORY = path.resolve(__dirname, '../dist');
 
 try {
   (function createDirectories () {
