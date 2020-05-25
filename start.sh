@@ -31,7 +31,7 @@ else
   echo "edge case"
 fi
 
-$nodePath /home/ec2-user/code/google-sheet-uploader/src/index.js &&
+$nodePath /home/ec2-user/code/kaohsiung-recall-data/src/index.js &&
 wget --no-check-certificate ${prodOption} -O ${targetURL} ${sourceURL} &&
 $awsPath cloudfront create-invalidation --distribution-id E2RE5FZJI8MX89 --paths \
 "/recall-vote-han-kuo-yu/defRunning.json" \
