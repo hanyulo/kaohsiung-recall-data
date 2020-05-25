@@ -1,5 +1,6 @@
 #!/bin/sh
-
+nodePath=~/.nvm/versions/node/v13.9.0/bin/node
+awsPath=/usr/bin/aws
 urlBase=https://tvdownload.2020.nat.gov.tw
 devRunURL=${urlBase}/doc/running.json
 devFinalURL=${urlBase}/doc/final.json
@@ -30,4 +31,10 @@ else
   echo "edge case"
 fi
 
-wget --no-check-certificate ${prodOption} -O ${targetURL} ${sourceURL}
+wget --no-check-certificate ${prodOption} -O ${targetURL} ${sourceURL} &&
+$nodePath /home/ec2-user/code/google-sheet-uploader/src/index.js &&
+$awsPath cloudfront create-invalidation --distribution-id E2RE5FZJI8MX89 --paths \
+"/recall-vote-han-kuo-yu/defRunning.json" \
+"/recall-vote-han-kuo-yu/devFinal.json" \
+"/recall-vote-han-kuo-yu/prodRunning.json" \
+"/recall-vote-han-kuo-yu/prodFinal.json"
