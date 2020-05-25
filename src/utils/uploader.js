@@ -52,4 +52,8 @@ function uploadDirectory (targetDirectory, bucketName, directoryPrefix) {
   });
 }
 
-module.exports = uploadDirectory;
+const BUCKET_NAME = 'pts-multimedia';
+const DIRECTORY_NAME = 'recall-vote-han-kuo-yu';
+const TARGET_DIRECTORY = path.resolve(__dirname, '../../dist');
+
+uploadDirectory(TARGET_DIRECTORY, BUCKET_NAME, DIRECTORY_NAME);

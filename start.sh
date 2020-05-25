@@ -33,6 +33,7 @@ fi
 
 $nodePath /home/ec2-user/code/kaohsiung-recall-data/src/index.js &&
 wget --no-check-certificate ${prodOption} -O ${targetURL} ${sourceURL} &&
+$nodePath /home/ec2-user/code/kaohsiung-recall-data/src/utils/uploader.js &&
 $awsPath cloudfront create-invalidation --distribution-id E2RE5FZJI8MX89 --paths \
 "/recall-vote-han-kuo-yu/defRunning.json" \
 "/recall-vote-han-kuo-yu/devFinal.json" \

@@ -1,10 +1,6 @@
 const path = require('path');
 const fs = require('fs');
 const logger = require('./utils/create-logger');
-const uploadDirectory = require('./utils/uploader');
-const BUCKET_NAME = 'pts-multimedia';
-const DIRECTORY_NAME = 'recall-vote-han-kuo-yu';
-const TARGET_DIRECTORY = path.resolve(__dirname, '../dist');
 
 try {
   (function createDirectories () {
@@ -27,5 +23,3 @@ try {
     message: `fail to create directory - erroe message: ${e.message}`
   });
 }
-
-uploadDirectory(TARGET_DIRECTORY, BUCKET_NAME, DIRECTORY_NAME);
