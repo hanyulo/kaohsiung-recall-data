@@ -1,0 +1,32 @@
+{
+  "name": "kaohsiung-recall-data",
+  "version": "1.0.0",
+  "description": "sync recall data with s3 of PTS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hanyulo/kaohsiung-recall-data.git"
+  },
+  "author": "Hanyulo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hanyulo/kaohsiung-recall-data/issues"
+  },
+  "homepage": "https://github.com/hanyulo/kaohsiung-recall-data#readme",
+  "devDependencies": {
+    "eslint": "^6.4.0",
+    "eslint-config-standard": "^14.1.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-node": "^10.0.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
+    "winston": "^3.2.1"
+  },
+  "dependencies": {
+    "aws-sdk": "^2.683.0",
+    "dotenv": "^8.2.0"
+  }
+}
