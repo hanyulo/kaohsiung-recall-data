@@ -70,6 +70,7 @@ if [ "${env}" == "development" ]; then
 else
   $nodePath ${srcDirectory}/kaohsiung-recall-data/src/index.js &&
   wget --no-check-certificate ${prodOption} -O ${targetURL} ${sourceURL} &&
+  MODE=${mode} $nodePath ${srcDirectory}/kaohsiung-recall-data/src/utils/data-processor.js &&
   $nodePath ${srcDirectory}/kaohsiung-recall-data/src/utils/uploader.js &&
   $awsPath cloudfront create-invalidation --distribution-id E2RE5FZJI8MX89 --paths ${s3targetPath}
 fi
