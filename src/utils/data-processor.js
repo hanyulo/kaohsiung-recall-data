@@ -95,16 +95,16 @@ const processAndWrite = ({
   extension
 }) => {
   fs
-    .writeFile(`${targetDirectory}/${fileName}_${Date.now()}.${extension}`, JSON.stringify(jsonObject, null, 2), (err) => {
+    .writeFile(`${targetDirectory}/${Date.now()}_original_${fileName}.${extension}`, JSON.stringify(jsonObject, null, 2), (err) => {
       if (err) {
         logger.log({
           level: 'error',
-          message: `fail to write file: ${fileName}: ${err}`
+          message: `fail to write file: ${Date.now()}_original_$${fileName}: ${err}`
         });
       } else {
         logger.log({
           level: 'info',
-          message: `write file ${fileName} successfully`
+          message: `write file ${Date.now()}_original_${fileName} successfully`
         });
       }
     });
@@ -122,6 +122,20 @@ const processAndWrite = ({
         logger.log({
           level: 'info',
           message: `write file ${fileName} successfully`
+        });
+      }
+    });
+  fs
+    .writeFile(`${targetDirectory}/${Date.now()}_dist_${fileName}.${extension}`, JSON.stringify(desiredData, null, 2), (err) => {
+      if (err) {
+        logger.log({
+          level: 'error',
+          message: `fail to write file: ${Date.now()}_dist_${fileName}: ${err}`
+        });
+      } else {
+        logger.log({
+          level: 'info',
+          message: `write file ${Date.now()}_dist_${fileName} successfully`
         });
       }
     });
