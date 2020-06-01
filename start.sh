@@ -21,7 +21,7 @@ prodFinalURL=${urlBase}/data/json/final.json
 targetURL=''
 sourceURL=''
 invalidationPath=''
-prodOption="--http-user=${account} --httppassword=${password}"
+prodOption="--http-user=${account} --http-password=${password}"
 
 #wget --no-check-certificate	--http-user=your_account --httppassword=your_password \
 # https://tvdownload.2020.nat.gov.tw/running.json
