@@ -60,30 +60,57 @@ const processData = ({
   let rateOfVoting = 0;
   let votingEligiblePopulation = 0;
   let totalBallotsCounted = 0;
+
+  let givenNumberOfYeses = 0;
+  let givenNumberOfNos = 0;
+  let givenAttemptedVoteCount = 0;
+  let givenRateOfVoting = 0;
+  let givenVotingEligiblePopulation = 0;
+  let givenTotalBallotsCounted = 0;
+
   districts.forEach(({
     agreeTks,
     disagreeTks,
     prof3,
     profRate,
     prof7,
-    prof1
+    prof1,
+    cityCode,
+    deptCode
   }) => {
-    numberOfYeses = agreeTks + numberOfYeses;
-    numberOfNos = disagreeTks + numberOfNos;
-    attemptedVoteCount = attemptedVoteCount + prof3;
-    rateOfVoting = rateOfVoting + profRate;
-    votingEligiblePopulation = votingEligiblePopulation + prof7;
-    totalBallotsCounted = totalBallotsCounted + prof1;
+    if (cityCode === '000' && deptCode === '000') {
+      givenNumberOfYeses = agreeTks;
+      givenNumberOfNos = disagreeTks;
+      givenAttemptedVoteCount = prof3;
+      givenRateOfVoting = profRate;
+      givenVotingEligiblePopulation = prof7;
+      givenTotalBallotsCounted = prof1;
+    } else {
+      numberOfYeses = agreeTks + numberOfYeses;
+      numberOfNos = disagreeTks + numberOfNos;
+      attemptedVoteCount = attemptedVoteCount + prof3;
+      rateOfVoting = rateOfVoting + profRate;
+      votingEligiblePopulation = votingEligiblePopulation + prof7;
+      totalBallotsCounted = totalBallotsCounted + prof1;
+    }
   });
 
   return {
     updatedAt,
-    numberOfYeses,
-    numberOfNos,
-    attemptedVoteCount,
-    rateOfVoting: (rateOfVoting / districts.length).toFixed(2),
-    votingEligiblePopulation,
-    totalBallotsCounted
+    numberOfYeses: givenNumberOfYeses,
+    numberOfNos: givenNumberOfNos,
+    attemptedVoteCount: givenAttemptedVoteCount,
+    rateOfVoting: givenRateOfVoting,
+    votingEligiblePopulation: givenVotingEligiblePopulation,
+    totalBallotsCounted: givenTotalBallotsCounted,
+    pts: {
+      numberOfYeses,
+      numberOfNos,
+      attemptedVoteCount,
+      rateOfVoting: (rateOfVoting / (districts.length - 1)).toFixed(2),
+      votingEligiblePopulation,
+      totalBallotsCounted
+    }
   };
 };
 
