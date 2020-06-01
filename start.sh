@@ -1,7 +1,5 @@
 #!/bin/sh
 
-echo ${mode}
-echo ${env}
 account=''
 password=''
 
