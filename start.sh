@@ -21,6 +21,8 @@ prodFinalURL=${urlBase}/data/json/final.json
 targetURL=''
 sourceURL=''
 invalidationPath=''
+srcDirectory=''
+folder=kaohsiung-recall-data
 prodOption="--http-user=${account} --http-password=${password}"
 
 #wget --no-check-certificate	--http-user=your_account --httppassword=your_password \
@@ -38,21 +40,21 @@ fi
 
 if [ "${mode}" == "devRunning" ]; then
   sourceURL=${devRunURL}
-  targetURL='./dist/devRunning.json'
+  targetURL="${srcDirectory}/${folder}/dist/devRunning.json"
   s3targetPath=${s3Directory}/devRunning.json
   prodOption=''
 elif [ "${mode}" == "devFinal" ]; then
   sourceURL=${devFinalURL}
-  targetURL='./dist/devFinal.json'
+  targetURL="${srcDirectory}/${folder}/dist/devFinal.json"
   s3targetPath=${s3Directory}/devFinal.json
   prodOption=''
 elif [ "${mode}" == "prodRunning" ]; then
   sourceURL=${prodRunURL}
-  targetURL='./dist/prodRunning.json'
+  targetURL="${srcDirectory}/${folder}/dist/prodRunning.json"
   s3targetPath=${s3Directory}/prodRunning.json
 elif [ "${mode}" == "prodFinal" ]; then
   sourceURL=${prodFinalURL}
-  targetURL='./dist/prodFinal.json'
+  targetURL="${srcDirectory}/${folder}/dist/prodFinal.json"
   s3targetPath=${s3Directory}/prodFinal.json
 else
   echo "edge case"
