@@ -22,22 +22,22 @@ const currentMode = process.env.MODE;
 const extension = 'json';
 
 const modes = {
-  defRunning: 'devRunning',
+  devRunning: 'devRunning',
   devFinal: 'devFinal',
   prodRunning: 'prodRunning',
   prodFinal: 'prodFinal'
 };
 
 const fileNames = {
-  [modes.defRunning]: 'defRunning',
+  [modes.devRunning]: 'devRunning',
   [modes.devFinal]: 'devFinal',
   [modes.prodRunning]: 'prodRunning',
   [modes.prodFinal]: 'prodFinal'
 };
 
 const targetFileName = (() => {
-  if (currentMode === modes.defRunning) {
-    return fileNames[modes.defRunning];
+  if (currentMode === modes.devRunning) {
+    return fileNames[modes.devRunning];
   } else if (currentMode === modes.devFinal) {
     return fileNames[modes.devFinal];
   } else if (currentMode === modes.prodRunning) {

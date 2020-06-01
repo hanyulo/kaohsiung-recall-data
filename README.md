@@ -11,7 +11,7 @@
 * `https://d3prffu8f9hpuw.cloudfront.net/recall-vote-han-kuo-yu/${fileName};`
 
 ## Files
-* defRunning.json
+* devRunning.json
 * devFinal.json
 * prodRunning.json
 * prodFinal.json

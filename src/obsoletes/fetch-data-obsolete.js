@@ -13,7 +13,7 @@ votingEligiblePopulation = data.CX.map((district, index) => district.prof7)
 const isProduction = process.env.NODE_ENV === 'production';
 const currentMode = process.env.MODE;
 const modes = {
-  defRunning: 'DEV_RUNNING',
+  devRunning: 'DEV_RUNNING',
   defFinal: 'DEV_FINAL',
   prodRunning: 'PROD_RUNNING',
   prodFinal: 'PROD_FINAL',
@@ -22,7 +22,7 @@ const cecUrlBase = 'https://tvdownload.2020.nat.gov.tw';
 
 
 const cecUrl = (() => {
-  if (currentMode === modes.defRunning) {
+  if (currentMode === modes.devRunning) {
     return `${cecUrlBase}/doc/running.json`;
   } else if (currentMode === modes.defFinal) {
     return `${cecUrlBase}/doc/final.json`;

@@ -38,8 +38,8 @@ fi
 
 if [ "${mode}" == "devRunning" ]; then
   sourceURL=${devRunURL}
-  targetURL='./dist/defRunning.json'
-  s3targetPath=${s3Directory}/defRunning.json
+  targetURL='./dist/devRunning.json'
+  s3targetPath=${s3Directory}/devRunning.json
   prodOption=''
 elif [ "${mode}" == "devFinal" ]; then
   sourceURL=${devFinalURL}
