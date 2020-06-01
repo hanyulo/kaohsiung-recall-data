@@ -6,8 +6,9 @@ try {
   (function createDirectories () {
     const distTargetDirectory = path.resolve(__dirname, '../dist');
     const logsTargetDirectory = path.resolve(__dirname, '../logs');
+    const historyTargetDirectory = path.resolve(__dirname, '../history');
 
-    const allDirs = [distTargetDirectory, logsTargetDirectory];
+    const allDirs = [distTargetDirectory, logsTargetDirectory, historyTargetDirectory];
 
     allDirs.forEach((target) => {
       if (!fs.existsSync(target)) {

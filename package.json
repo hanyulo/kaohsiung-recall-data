@@ -4,7 +4,8 @@
   "description": "sync recall data with s3 of PTS",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start:fetch": "NODE_ENV=development MODE=DEV_RUNNING node src/utils/fetch-data.js"
   },
   "repository": {
     "type": "git",
@@ -28,6 +29,8 @@
   "dependencies": {
     "aws-sdk": "^2.683.0",
     "dotenv": "^8.2.0",
-    "mime": "^2.4.5"
+    "lodash": "^4.17.15",
+    "mime": "^2.4.5",
+    "node-fetch": "^2.6.0"
   }
 }
