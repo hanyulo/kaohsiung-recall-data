@@ -67,12 +67,12 @@ if [ "${env}" == "development" ]; then
   $nodePath ${srcDirectory}/kaohsiung-recall-data/src/index.js &&
   curl --max-time 120 -k --insecure -u ${account}:${password} ${sourceURL} --output ${targetURL} &&
   MODE=${mode} $nodePath ${srcDirectory}/kaohsiung-recall-data/src/utils/data-processor.js &&
-  $nodePath ${srcDirectory}/kaohsiung-recall-data/src/utils/uploader.js &&
-  $awsPath cloudfront create-invalidation --distribution-id E2RE5FZJI8MX89 --paths ${s3targetPath}
+  $nodePath ${srcDirectory}/kaohsiung-recall-data/src/utils/uploader.js # &&
+  # $awsPath cloudfront create-invalidation --distribution-id E2RE5FZJI8MX89 --paths ${s3targetPath}
 else
   $nodePath ${srcDirectory}/kaohsiung-recall-data/src/index.js &&
   wget --no-check-certificate ${prodOption} -O ${targetURL} ${sourceURL} &&
   MODE=${mode} $nodePath ${srcDirectory}/kaohsiung-recall-data/src/utils/data-processor.js &&
-  $nodePath ${srcDirectory}/kaohsiung-recall-data/src/utils/uploader.js &&
-  $awsPath cloudfront create-invalidation --distribution-id E2RE5FZJI8MX89 --paths ${s3targetPath}
+  $nodePath ${srcDirectory}/kaohsiung-recall-data/src/utils/uploader.js # &&
+  # $awsPath cloudfront create-invalidation --distribution-id E2RE5FZJI8MX89 --paths ${s3targetPath}
 fi
