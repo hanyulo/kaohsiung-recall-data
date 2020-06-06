@@ -34,7 +34,7 @@ function uploadDirectory (targetDirectory, bucketName, directoryPrefix) {
       Key: `${directoryPrefix}/${bucketPath}`,
       Body: fs.readFileSync(pwd),
       ContentType: contentType,
-      CacheControl: 'max-age=180'
+      CacheControl: 'max-age=60'
     };
     s3.putObject(params, function (err, data) {
       if (err) {
